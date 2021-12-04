@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trips_app/widgets/app_larg_text.dart';
 import 'package:trips_app/widgets/app_text.dart';
+import 'package:trips_app/widgets/responsive_button.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -30,6 +31,7 @@ class _WelcomePageState extends State<WelcomePage> {
               child: Container(
                 margin: const EdgeInsets.only(top: 150, right: 20, left: 20),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,8 +53,29 @@ class _WelcomePageState extends State<WelcomePage> {
                             color: Colors.grey[100],
                             size: 14,
                           ),
-                        )
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const ResponsiveButton(
+                          width: 70,
+                        ),
                       ],
+                    ),
+                    Column(
+                      children: List.generate(3, (indexDot) {
+                        return Container(
+                          width: 8,
+                          height: index == indexDot ? 25 : 8,
+                          margin: const EdgeInsets.only(bottom: 8),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: index == indexDot
+                                ? Colors.blueAccent
+                                : Colors.blue[300],
+                          ),
+                        );
+                      }),
                     )
                   ],
                 ),
